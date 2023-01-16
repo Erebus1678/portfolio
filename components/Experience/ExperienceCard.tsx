@@ -1,4 +1,5 @@
 
+
 import { motion } from 'framer-motion'
 
 
@@ -39,7 +40,7 @@ const ExperienceCard = () => {
           {experience.points.map((point, i) => (
             <li key={`point-num-${i}`}>{point}</li>
           ))} */}
-        </ul>
+        </div>
       </div>
     </article>
   )
