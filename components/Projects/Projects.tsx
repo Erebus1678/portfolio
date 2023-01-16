@@ -22,7 +22,7 @@ const Projects = () => {
 
       <h3 className='absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
 
-      <div className='w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 h-[90vh] mt-[10vh]'>
+      <div className='w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 h-[90vh] sm:h-[85vh] mt-[10vh] sm:mt-[15vh]'>
         <Swiper navigation={true} modules={[Navigation]} className=''>
           {projects_data?.map((project, i) => (
             <div key={nanoid()}
@@ -37,7 +37,7 @@ const Projects = () => {
                   className='max-h-[58vh]'
                 />
                 <div className='space-y-5 px-0 md:px-10 max-w-6xl'>
-                  <h4 className='text-4xl font-semibold text-center'>
+                  <h4 className='text-4xl sm:text-3xl font-semibold text-center'>
                     <span className='underline decoration-[#F7AB0A]/50'>Case Study {i + 1} of {projects_data.length}:</span>
                     {' '}{project.title}
                   </h4>

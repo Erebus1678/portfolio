@@ -54,7 +54,7 @@ const Home = () => {
             <Image
               width={40}
               height={40}
-              className='opacity-20 rounded-full filter cursor-pointer
+              className='opacity-30 rounded-full filter cursor-pointer
               hover:opacity-100'
               src='Icons/arrow-up.svg' alt='arrow up' />
           </div>
