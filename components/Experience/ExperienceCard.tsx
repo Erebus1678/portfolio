@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-import { motion } from 'framer-motion'
 
+import { motion } from 'framer-motion'
 
 
 const ExperienceCard = () => {
@@ -17,14 +16,14 @@ const ExperienceCard = () => {
         viewport={{ once: true }}
 
         className='w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center'
-        src={urlFor(experience?.companyImage).url()}
+        src={''}
       />
 
       <div className='px-0 md:px-10'>
         <h4 className='text-4xl font-light'>CEO of Google</h4>
         <p className='font-bold text-2xl mt-1'>GOOGLE</p>
         <div className='flex space-x-2 my-2 '>
-          {experience.technologies.map((technology) => (
+          {/* {experience.technologies.map((technology) => (
             <img
               key={technology._id}
               src={urlFor(technology?.image).url()}
@@ -39,7 +38,7 @@ const ExperienceCard = () => {
         <ul className='list-disc space-y-4 ml-5 text-lg max-h-40 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80 pr-5'>
           {experience.points.map((point, i) => (
             <li key={`point-num-${i}`}>{point}</li>
-          ))}
+          ))} */}
         </ul>
       </div>
     </article>
