@@ -36,7 +36,7 @@ function Header(): JSX.Element {
                 ))}
 
                 <Link href='https://drive.google.com/file/d/1RfLA658R8DzaidDYhOrPfmL9MCCx_WBg/view'>
-                    <img src="/icons/cv.svg" alt="Cv button"
+                    <img src="/Icons/cv.svg" alt="Cv button"
                         className='h-10 w-10 fill-gray-600' />
                 </Link>
             </motion.div>

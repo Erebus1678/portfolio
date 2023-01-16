@@ -7,11 +7,11 @@ export const projects_data: Project[] = [
     summary:
       "Yes, now you here! Clean project written with: TypeScript, Next , React, Tailwind. I hope u enjoy this!",
     techno: [
-      "/icons/javascript.svg",
-      "/icons/typescript.svg",
-      "/icons/tailwindcss.svg",
-      "/icons/next.png",
-      "/icons/react.svg",
+      "/Icons/javascript.svg",
+      "/Icons/typescript.svg",
+      "/Icons/tailwindcss.svg",
+      "/Icons/next.png",
+      "/Icons/react.svg",
     ],
   },
   {
@@ -38,7 +38,7 @@ export const projects_data: Project[] = [
     ],
   },
   {
-    projPhoto: "/projectPhoto/crud.png",
+    projPhoto: "/projectPhoto/Crud.png",
     title: "Employees list - CRUD App",
     summary:
       "My first react app. Fully based on class components.  Project was made for practice with CRUD operations. Has filter, marks.",
@@ -49,7 +49,7 @@ export const projects_data: Project[] = [
     ],
   },
   {
-    projPhoto: "/projectPhoto/food.png",
+    projPhoto: "/projectPhoto/Food.png",
     title: "Food delivery landing",
     summary:
       "Food delevery landing page. Written on pure JS, has 6 cool features : Calories calculator, Cards made with classes,Forms connected to local storage with fetch, Modal window with timer and statuses, Slider, Tabs",
