@@ -39,7 +39,7 @@ const Projects = () => {
                 <div className='space-y-5 px-0 md:px-10 max-w-6xl'>
                   <h4 className='text-4xl sm:text-3xl font-semibold text-center'>
                     <span className='underline decoration-[#F7AB0A]/50'>Case Study {i + 1} of {projects_data.length}:</span>
-                    {' '}{project.title}
+                    {' '}{project.title}{' '}{project.title === 'Portfolio' ? '' : <a className='opacity-60 hover:opacity-100' href={project.link}>- Link</a>}
                   </h4>
 
                   <div className='flex items-center space-x-2 justify-center'>

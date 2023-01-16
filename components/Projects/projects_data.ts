@@ -13,6 +13,7 @@ export const projects_data: Project[] = [
       "/Icons/next.png",
       "/Icons/react.svg",
     ],
+    link: "",
   },
   {
     projPhoto: "/projectPhoto/Marvel.png",
@@ -24,6 +25,7 @@ export const projects_data: Project[] = [
       "/Icons/react.svg",
       "/Icons/bootstrap.svg",
     ],
+    link: "https://erebus1678.github.io/marvel-info-portal/",
   },
   {
     projPhoto: "/projectPhoto/TOdo.png",
@@ -36,6 +38,7 @@ export const projects_data: Project[] = [
       "/Icons/bootstrap.svg",
       "/Icons/css3.svg",
     ],
+    link: "https://todo-cpv5dpgfb-erebus1678.vercel.app/",
   },
   {
     projPhoto: "/projectPhoto/Crud.png",
@@ -47,6 +50,7 @@ export const projects_data: Project[] = [
       "/Icons/react.svg",
       "/Icons/bootstrap.svg",
     ],
+    link: "https://erebus1678.github.io/react-CRUD-app/",
   },
   {
     projPhoto: "/projectPhoto/Food.png",
@@ -54,5 +58,6 @@ export const projects_data: Project[] = [
     summary:
       "Food delevery landing page. Written on pure JS, has 6 cool features : Calories calculator, Cards made with classes,Forms connected to local storage with fetch, Modal window with timer and statuses, Slider, Tabs",
     techno: ["/Icons/javascript.svg", "/Icons/css3.svg"],
+    link: "https://erebus1678.github.io/food-delivery/",
   },
 ];

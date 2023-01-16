@@ -8,4 +8,5 @@ export interface Project {
   title: string;
   summary: string;
   techno: string[];
+  link: string;
 }
