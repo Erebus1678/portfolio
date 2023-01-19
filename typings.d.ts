@@ -1,6 +1,7 @@
 export interface Skill {
   image: string;
   progress: number;
+  title: string;
 }
 
 export interface Project {

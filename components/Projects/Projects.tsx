@@ -5,9 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from "swiper";
 import { nanoid } from 'nanoid';
 
-import 'swiper/css';
-import "swiper/css/navigation";
-
 import { projects_data } from './projects_data';
 import Image from 'next/image';
 
@@ -33,9 +30,11 @@ const Projects = () => {
                   transition={{ duration: 1.2 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
+                  className='max-h-[58vh] relative'
+                  alt={`${project.title} screenshot`}
                   src={project.projPhoto}
-                  className='max-h-[58vh]'
                 />
+
                 <div className='space-y-5 px-0 md:px-10 max-w-6xl'>
                   <h4 className='text-4xl sm:text-3xl font-semibold text-center'>
                     <span className='underline decoration-[#F7AB0A]/50'>Case Study {i + 1} of {projects_data.length}:</span>
