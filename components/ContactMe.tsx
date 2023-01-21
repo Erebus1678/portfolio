@@ -59,7 +59,9 @@ Text: ${formData?.message}
           </div> */}
           <div className='flex items-center space-x-5 mx-auto justify-center'>
             <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
-            <a href="mailto:dmitriy.platov@gmail.com">dmitriy.platov@gmail.com</a>
+            <a href="mailto:dmitryi.platov@gmail.com
+">dmitryi.platov@gmail.com
+            </a>
           </div>
           <div className='flex items-center space-x-5 mx-auto justify-center'>
             <MapPinIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
