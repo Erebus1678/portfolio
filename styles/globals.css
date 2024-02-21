@@ -15,7 +15,24 @@
 .swiper-button-next {
   color: gray !important;
   right: 20px !important;
+  top: 15% !important;
+  height: 60% !important;
+  transition: all 0.2s ease-in-out !important;
+  &:hover{
+    color: #F7AB0A !important;
+    background-color: #ffffff18 !important;
+  }
+  
 }
+
 .swiper-button-prev {
   color: gray !important;
+  right: 20px !important;
+  top: 15% !important;
+  height: 60% !important;
+  transition: all 0.3s ease-in-out !important;
+  &:hover{
+    color: #F7AB0A !important;
+    background-color: #ffffff18 !important;
+  }
 }
