@@ -11,3 +11,13 @@ export interface Project {
   techno: string[];
   link: string;
 }
+
+export interface Experience {
+	job_img: string;
+	job_title: string;
+	job_company: string;
+	technologies: string[];
+	dataStarted: string;
+	isCurrentlyWorkingHere: boolean;
+	points: string[];
+}

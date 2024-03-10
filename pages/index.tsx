@@ -7,7 +7,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Projects from '../components/Projects/Projects'
 import Skills from '../components/Skills/Skills'
-
+import WorkExperience from '../components/Experience/WorkExperience'
 
 const Home = () => {
 
@@ -32,9 +32,9 @@ const Home = () => {
         <About />
       </section>
 
-      {/* <section id='experience' className='snap-center'>
-        <WorkExperience experiences={experiences} />
-      </section> */}
+			<section id='experience' className='snap-center'>
+				<WorkExperience />
+			</section>
 
       <section id='skills' className='snap-start'>
         <Skills />
