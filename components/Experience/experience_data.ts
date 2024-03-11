@@ -2,7 +2,7 @@ import { Experience } from '../../typings';
 
 export const experience: Experience[] = [
 	{
-		job_img: '/Experience/Phobosys.svg',
+		job_img: '/Experience/phobosys.svg',
 		job_title: 'JS Web Developer',
 		job_company: 'Phobosys (Outsource)',
 		technologies: [
