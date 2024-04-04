@@ -2,16 +2,16 @@ import { Experience } from '../../typings';
 
 export const experience: Experience[] = [
 	{
-		job_img: '/Experience/phobosys.svg',
+		job_img: '/Experience/dreamhost.svg',
 		job_title: 'JS Web Developer',
-		job_company: 'Phobosys (Outsource)',
+		job_company: 'DreamHost',
 		technologies: [
 			'/Icons/javascript.svg',
 			'/Icons/react.svg',
 			'/Icons/redux.svg',
 			'/Icons/sass.svg',
 		],
-		dataStarted: '02.06.2023',
+		dataStarted: '02/23',
 		isCurrentlyWorkingHere: true,
 		points: [
 			'Configured and integrated AI chatbot using a machine learning model trained on an internal knowledge base. Optimized the chatbot\'s parameters to ensure its accuracy, relevance, and efficiency. The chatbot answered more user questions, reducing support workload by 47%. The chatbot received positive feedback from users. Monitored and analyzed the performance of the chatbot, making adjustments as needed. Cooperated with the development team to ensure smooth operation of the chatbot.',
