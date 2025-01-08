@@ -1,11 +1,10 @@
-
 import { motion } from 'framer-motion'
 import ExperienceCard from './ExperienceCard'
 import { experience } from './experience_data'
 import { useId } from 'react'
 
 const WorkExperience = () => {
-	const id = useId()
+  const id = useId()
   return (
     <motion.div
       initial={{ opacity: 0 }}

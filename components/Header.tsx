@@ -5,8 +5,11 @@ import { motion } from 'framer-motion'
 import Router from 'next/router'
 import { nanoid } from 'nanoid'
 
-const Socials = ['https://t.me/Erebus1678', 'https://github.com/Erebus1678', 'https://www.linkedin.com/in/dmitryi-platov/']
-
+const Socials = [
+  'https://t.me/Erebus1678',
+  'https://github.com/Erebus1678',
+  'https://www.linkedin.com/in/dmitryi-platov/',
+]
 
 function Header(): JSX.Element {
   return (
