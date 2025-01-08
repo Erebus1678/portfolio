@@ -1,26 +1,28 @@
 import { Experience } from '../../typings';
 
 export const experience: Experience[] = [
-	{
-		job_img: '/Experience/dreamhost.svg',
-		job_title: 'JS Web Developer',
-		job_company: 'DreamHost',
-		technologies: [
-			'/Icons/javascript.svg',
-			'/Icons/react.svg',
-			'/Icons/redux.svg',
-			'/Icons/sass.svg',
-		],
-		dataStarted: '02/23',
-		isCurrentlyWorkingHere: true,
-		points: [
-			'Configured and integrated AI chatbot using a machine learning model trained on an internal knowledge base. Optimized the chatbot\'s parameters to ensure its accuracy, relevance, and efficiency. The chatbot answered more user questions, reducing support workload by 47%. The chatbot received positive feedback from users. Monitored and analyzed the performance of the chatbot, making adjustments as needed. Cooperated with the development team to ensure smooth operation of the chatbot.',
+  {
+    job_img: '/Experience/dreamhost.svg',
+    job_title: 'JS Web Developer',
+    job_company: 'DreamHost',
+    technologies: [
+      '/Icons/javascript.svg',
+      '/Icons/react.svg',
+      '/Icons/redux.svg',
+      '/Icons/sass.svg',
+    ],
+    dataStarted: '02/23',
+    isCurrentlyWorkingHere: true,
+    points: [
+      'Migrated Google Analytics (GA3 to GA4) with 100% data integrity, enabling better insights and reducing reporting time by ~25%.',
 
-			'Redesigned the main product, improving its usability and visual appeal. Refactored the code, improving its readability, maintainability, and performance. Implemented new functionality, such as filters and sorting, to improve the user experience, which was well received by users.',
+      'Redesigned the main product’s UI/UX, cutting negative user feedback and raising satisfaction',
 
-			'Successfully completed the migration from Google Analytics Universal (GA3) to Google Analytics 4 (GA4) on time, maintaining 100% data accuracy. Analyzed and compared data in GA3 and GA4, generated reports with valuable recommendations for using GA4',
+      'Spearheaded the development of more than 10 new marketing pages, enhancing user engagement by 35% and contributing to a 20% increase in lead generation within the first quarter post-launch.',
 
-			'Developed and implemented solutions to fix bugs and improve UX, resulting in improved UX that reduced the number of dissatisfied customers. Increased user satisfaction by 44%'
-		]
-	}
+      'Revamped the existing dashboard interface by implementing a user-friendly design that improved loading speed by 50%, resulting in a decrease in bounce rates from 18% to just 9%.',
+
+      'Conducted an extensive code refactor and bug-fix initiative, addressing over 150 legacy issues and optimizing functionality, which led to a remarkable reduction in support ticket volumes by 40%.',
+    ],
+  },
 ]
