@@ -32,7 +32,7 @@ const Projects = () => {
                   transition={{ duration: 1.2 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="max-h-[58vh] relative"
+                  className="max-h-[58vh] relative max-w-[90%] md:max-w-[100%]"
                   alt={`${project.title} screenshot`}
                   src={project.projPhoto}
                 />
@@ -60,7 +60,7 @@ const Projects = () => {
                       <Image
                         key={nanoid()}
                         src={techno}
-                        alt="tehnology logo"
+                        alt="technology logo"
                         width={40}
                         height={40}
                       />
