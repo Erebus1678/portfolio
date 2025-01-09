@@ -7,7 +7,7 @@ import Image from 'next/image'
 const Hero = () => {
   const [text, count] = useTypewriter({
     words: [
-      `Hi, The Name's Platov Dmytro`,
+      "Hi, The Name's Dmytro",
       'Guy who loves Coffee',
       'Tech and Anime Nerd',
     ],

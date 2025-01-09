@@ -46,7 +46,7 @@ Text: ${formData?.message}
     reset()
   }
   return (
-    <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 justify-evenly mx-auto items-center sm:justify-center">
+    <div className="h-screen flex relative flex-col justify-center items-center text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 mx-auto">
       <h3 className="absolute top-16 uppercase tracking-[15px] sm:tracking-[20px] text-gray-500 text-xl sm:text-2xl">
         Contact
       </h3>
@@ -56,7 +56,7 @@ Text: ${formData?.message}
         </h3>
       )}
 
-      <div className="flex flex-col space-y-6 sm:space-y-10 h-[85vh] mt-[15vh]">
+      <div className="flex flex-col justify-center space-y-6 sm:space-y-10 h-[85vh] mt-[15vh]">
         <h4 className="text-2xl sm:text-4xl font-semibold text-center">
           I have got just what you need. {''}
           <span className="underline decoration-[#F7AB0A] uppercase">
@@ -73,10 +73,10 @@ Text: ${formData?.message}
               dmitryi.platov@gmail.com
             </a>
           </div>
-          <div className="flex items-center space-x-5 mx-auto justify-center">
+          {/* <div className="flex items-center space-x-5 mx-auto justify-center">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
             <p>Ukraine!</p>
-          </div>
+          </div> */}
         </div>
 
         <form
