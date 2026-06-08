@@ -47,36 +47,36 @@ Text: ${formData?.message}
   }
   return (
     <div className="h-screen flex relative flex-col justify-center items-center text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 mx-auto">
-      <h3 className="absolute top-16 uppercase tracking-[15px] sm:tracking-[20px] text-gray-500 text-xl sm:text-2xl">
+      <h2 className="absolute top-16 uppercase tracking-[15px] sm:tracking-[20px] text-gray-500 text-xl sm:text-2xl">
         Contact
-      </h3>
+      </h2>
       {isSuccessfullySubmitted && (
-        <h3 className="absolute bottom-10 text-[#F7AB0A] text-lg sm:text-2xl animate-pulse">
+        <p
+          role="status"
+          className="absolute bottom-10 text-[#F7AB0A] text-lg sm:text-2xl animate-pulse"
+        >
           The message was sent successfully
-        </h3>
+        </p>
       )}
 
       <div className="flex flex-col justify-center space-y-6 sm:space-y-10 h-[85vh] mt-[15vh]">
-        <h4 className="text-2xl sm:text-4xl font-semibold text-center">
+        <h3 className="text-2xl sm:text-4xl font-semibold text-center">
           I have got just what you need. {''}
           <span className="underline decoration-[#F7AB0A] uppercase">
             Let&apos;s talk!
           </span>
-        </h4>
+        </h3>
         <div className="space-y-3 sm:space-y-5">
           <div className="flex items-center space-x-5 mx-auto justify-center">
             <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <a
-              href="mailto:dmitryi.platov@gmail.com
-"
-            >
+            <a href="mailto:dmitryi.platov@gmail.com">
               dmitryi.platov@gmail.com
             </a>
           </div>
-          {/* <div className="flex items-center space-x-5 mx-auto justify-center">
+          <div className="flex items-center space-x-5 mx-auto justify-center">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p>Ukraine!</p>
-          </div> */}
+            <p>Bucharest, Romania · open to remote (EU) &amp; relocation</p>
+          </div>
         </div>
 
         <form
@@ -88,6 +88,7 @@ Text: ${formData?.message}
               {...register('name')}
               className="contactInput w-full sm:w-1/2"
               placeholder="Name"
+              aria-label="Name"
               type="text"
               required
             />
@@ -95,6 +96,7 @@ Text: ${formData?.message}
               {...register('email')}
               className="contactInput w-full sm:w-1/2"
               placeholder="E-mail"
+              aria-label="E-mail"
               type="email"
               required
             />
@@ -103,6 +105,7 @@ Text: ${formData?.message}
             {...register('subject')}
             className="contactInput"
             placeholder="Subject"
+            aria-label="Subject"
             type="text"
             required
           />
@@ -110,6 +113,7 @@ Text: ${formData?.message}
             {...register('message')}
             className="contactInput min-h-[60px] max-h-[80px] sm:max-h-[120px]"
             placeholder="Message"
+            aria-label="Message"
             required
           />
           <button

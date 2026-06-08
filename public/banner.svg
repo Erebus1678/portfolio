@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Dmytro Platov — Senior Frontend Engineer">
+  <rect width="1200" height="340" fill="#242424"/>
+  <g opacity="0.5">
+    <circle cx="600" cy="170" r="150" fill="none" stroke="#333333" stroke-width="1"/>
+    <circle cx="600" cy="170" r="110" fill="none" stroke="#333333" stroke-width="1"/>
+    <circle cx="600" cy="170" r="70" fill="none" stroke="#F7AB0A" stroke-opacity="0.3" stroke-width="1"/>
+  </g>
+  <rect x="-100" y="250" width="1400" height="120" fill="#F7AB0A" opacity="0.08" transform="rotate(-10 600 300)"/>
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" letter-spacing="8" fill="#9ca3af">SENIOR FRONTEND ENGINEER</text>
+  <text x="600" y="190" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" fill="#ffffff">Dmytro Platov</text>
+  <text x="600" y="235" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" letter-spacing="2" fill="#F7AB0A">React  ·  TypeScript  ·  Next.js</text>
+  <text x="600" y="285" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" letter-spacing="1" fill="#6b7280">platov-portfolio.vercel.app</text>
+</svg>

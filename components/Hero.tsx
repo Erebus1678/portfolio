@@ -5,11 +5,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const Hero = () => {
-  const [text, count] = useTypewriter({
+  const [text] = useTypewriter({
     words: [
-      "Hi, The Name's Dmytro",
-      'Guy who loves Coffee',
-      'Tech and Anime Nerd',
+      "Hi, I'm Dmytro Platov",
+      'Senior Frontend Engineer',
+      'React · TypeScript · Next.js',
     ],
     loop: true,
     delaySpeed: 3000,
@@ -21,14 +21,15 @@ const Hero = () => {
       <Image
         src="/Photo/heroPhoto.jpg"
         className=" relative rounded-full object-cover"
-        alt="First photo"
+        alt="Portrait of Dmytro Platov"
         width={128}
         height={128}
+        priority
       />
       <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-          Web Developer
-        </h2>
+        <p className="text-sm uppercase text-gray-400 pb-2 tracking-[15px]">
+          Senior Frontend Engineer
+        </p>
 
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3 ">{text}</span>
@@ -45,7 +46,7 @@ const Hero = () => {
             <button className="heroButton">Skills</button>
           </Link>
           <Link href="#projects">
-            <button className="heroButton">Pet Projects</button>
+            <button className="heroButton">Projects</button>
           </Link>
         </div>
       </div>

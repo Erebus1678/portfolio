@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
-import { nanoid } from 'nanoid'
 
 import { projects_data } from './projects_data'
 import Image from 'next/image'
@@ -15,63 +14,78 @@ const Projects = () => {
       transition={{ duration: 1.5 }}
       className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
     >
-      <h3 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl">
-        Pet Projects
-      </h3>
+      <h2 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl">
+        Projects
+      </h2>
 
       <div className="w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 h-[90vh] sm:h-[85vh] mt-[10vh] sm:mt-[15vh]">
         <Swiper navigation={true} modules={[Navigation]} className="">
           {projects_data?.map((project, i) => (
-            <div
-              key={nanoid()}
+            <SwiperSlide
+              key={project.title}
               className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center cursor-grab h-full"
             >
-              <SwiperSlide className="flex flex-col items-center justify-center">
-                <motion.img
-                  initial={{ y: -300, opacity: 0 }}
-                  transition={{ duration: 1.2 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="max-h-[58vh] relative max-w-[90%] md:max-w-[100%]"
-                  alt={`${project.title} screenshot`}
-                  src={project.projPhoto}
-                />
+              <motion.img
+                initial={{ y: -300, opacity: 0 }}
+                transition={{ duration: 1.2 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="max-h-[58vh] relative max-w-[90%] md:max-w-[100%]"
+                alt={`${project.title} project preview`}
+                src={project.projPhoto}
+                loading="lazy"
+              />
 
-                <div className="space-y-5 px-0 md:px-10 max-w-6xl">
-                  <h4 className="text-4xl sm:text-3xl font-semibold text-center">
-                    <span className="underline decoration-[#F7AB0A]/50">
-                      Case Study {i + 1} of {projects_data.length}:
-                    </span>{' '}
-                    {project.title}{' '}
-                    {project.title === 'Portfolio' ? (
-                      ''
-                    ) : (
+              <div className="space-y-5 px-0 md:px-10 max-w-6xl">
+                <h3 className="text-4xl sm:text-3xl font-semibold text-center">
+                  <span className="underline decoration-[#F7AB0A]/50">
+                    Case Study {i + 1} of {projects_data.length}:
+                  </span>{' '}
+                  {project.title}
+                  {project.link && (
+                    <>
+                      {' · '}
                       <a
                         className="opacity-60 hover:opacity-100"
                         href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        - Link
+                        Live
                       </a>
-                    )}
-                  </h4>
+                    </>
+                  )}
+                  {project.repo && (
+                    <>
+                      {' · '}
+                      <a
+                        className="opacity-60 hover:opacity-100"
+                        href={project.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Code
+                      </a>
+                    </>
+                  )}
+                </h3>
 
-                  <div className="flex items-center space-x-2 justify-center">
-                    {project.techno?.map((techno) => (
-                      <Image
-                        key={nanoid()}
-                        src={techno}
-                        alt="technology logo"
-                        width={40}
-                        height={40}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-lg text-center md:text-left ">
-                    {project.summary}
-                  </p>
+                <div className="flex items-center space-x-2 justify-center">
+                  {project.techno?.map((techno) => (
+                    <Image
+                      key={techno}
+                      src={techno}
+                      alt="technology logo"
+                      width={40}
+                      height={40}
+                    />
+                  ))}
                 </div>
-              </SwiperSlide>
-            </div>
+                <p className="text-lg text-center md:text-left ">
+                  {project.summary}
+                </p>
+              </div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>
