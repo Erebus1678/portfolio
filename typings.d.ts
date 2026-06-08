@@ -4,19 +4,25 @@ export interface Skill {
 }
 
 export interface Project {
-  projPhoto: string;
-  title: string;
-  summary: string;
-  techno: string[];
-  link: string;
+  projPhoto: string
+  title: string
+  summary: string
+  techno: string[]
+  /** Live demo URL (optional — some projects are code-only). */
+  link?: string
+  /** Public source repository URL. */
+  repo?: string
 }
 
 export interface Experience {
-	job_img: string;
-	job_title: string;
-	job_company: string;
-	technologies: string[];
-	dataStarted: string;
-	isCurrentlyWorkingHere: boolean;
-	points: string[];
+  job_img: string
+  job_title: string
+  job_company: string
+  technologies: string[]
+  /** Start date label, e.g. "Feb 2023". */
+  dateStarted: string
+  /** End date label, ignored when isCurrentlyWorkingHere is true. */
+  dateEnded?: string
+  isCurrentlyWorkingHere: boolean
+  points: string[]
 }

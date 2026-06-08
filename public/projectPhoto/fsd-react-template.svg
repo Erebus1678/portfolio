@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="FSD React Template">
+  <rect width="1200" height="675" fill="#242424"/>
+  <rect x="-100" y="430" width="1400" height="200" fill="#F7AB0A" opacity="0.10" transform="rotate(-12 600 530)"/>
+  <text x="600" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="700" fill="#ffffff">FSD React Template</text>
+  <text x="600" y="380" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" fill="#F7AB0A" letter-spacing="3">Feature-Sliced Design · TypeScript · Vite · Zustand</text>
+</svg>

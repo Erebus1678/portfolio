@@ -2,24 +2,49 @@ import { Project } from '../../typings'
 
 export const projects_data: Project[] = [
   {
+    projPhoto: '/projectPhoto/fsd-react-template.svg',
+    title: 'FSD React Template',
+    summary:
+      'Production-ready React starter built on Feature-Sliced Design — TypeScript, Vite, TailwindCSS, Zustand, React Router and Jest/RTL, with ESLint/Prettier wired up. A reusable architecture baseline for scaling frontend codebases.',
+    techno: [
+      '/Icons/typescript.svg',
+      '/Icons/react.svg',
+      '/Icons/tailwindcss.svg',
+    ],
+    repo: 'https://github.com/Erebus1678/fsd-react-template',
+  },
+  {
+    projPhoto: '/projectPhoto/next-mobx-crypto-exchange.svg',
+    title: 'Crypto Exchange',
+    summary:
+      'Real-time cryptocurrency converter built with Next.js 15, React 19 and MobX. TypeScript throughout, MUI for the interface, and react-hook-form with Zod for validated forms.',
+    techno: [
+      '/Icons/typescript.svg',
+      '/Icons/react.svg',
+      '/Icons/next.png',
+    ],
+    link: 'https://next-mobx-crypto-exchange.vercel.app',
+    repo: 'https://github.com/Erebus1678/next-mobx-crypto-exchange',
+  },
+  {
     projPhoto: '/projectPhoto/imaginify.png',
     title: 'Imaginify',
     summary:
-      'Advanced AI image processing (restoration, recoloring, object removal, background removal) leveraging multiple AI models. Secure and user-friendly platform with Stripe integration, Clerk-based authentication, community features, and Shadcn UI components.',
+      'AI image-editing SaaS — Next.js 14 and TypeScript with Cloudinary AI for restoration, recoloring and background removal. Clerk authentication, Stripe payments, MongoDB and Radix UI, with Zod-validated forms.',
     techno: [
-      '/Icons/javascript.svg',
       '/Icons/typescript.svg',
-      '/Icons/tailwindcss.svg',
-      '/Icons/next.png',
       '/Icons/react.svg',
+      '/Icons/next.png',
+      '/Icons/tailwindcss.svg',
     ],
     link: 'https://imaginify-tan-tau.vercel.app/',
+    repo: 'https://github.com/Erebus1678/imaginify',
   },
   {
     projPhoto: '/projectPhoto/promptopia.png',
     title: 'Promptopia',
     summary:
-      'Project written to try out new technologies like: Server Components, App Folder Structure, File-based Routing (including dynamic and nested routes), Serverless Route Handlers (Next API, Full Stack Apps), MongoDB, next-auth',
+      'Full-stack Next.js app exploring the App Router, server components, file-based and dynamic routing, serverless route handlers, MongoDB and next-auth.',
     techno: [
       '/Icons/javascript.svg',
       '/Icons/typescript.svg',
@@ -30,24 +55,10 @@ export const projects_data: Project[] = [
     link: 'https://promptopia-iota.vercel.app/',
   },
   {
-    projPhoto: '/projectPhoto/port.png',
-    title: 'Portfolio',
-    summary:
-      "Yes, now you're here! Neat project written with: TypeScript, Next , React, Tailwind. I hope u enjoy this!",
-    techno: [
-      '/Icons/javascript.svg',
-      '/Icons/typescript.svg',
-      '/Icons/tailwindcss.svg',
-      '/Icons/next.png',
-      '/Icons/react.svg',
-    ],
-    link: '',
-  },
-  {
     projPhoto: '/projectPhoto/Marvel.png',
-    title: 'Marvel Info portal',
+    title: 'Marvel Info Portal',
     summary:
-      'Quite big edu project that started from class based components and then was refactored to function components. In this project, I used Marvel Api, for fetching practice. Also I used some modern libraries like: Helmet, Formik, React-router-dom.',
+      'Education project refactored from class-based to function components. Uses the Marvel API for data fetching, with React Router, Formik and Helmet.',
     techno: [
       '/Icons/javascript.svg',
       '/Icons/react.svg',
@@ -59,7 +70,7 @@ export const projects_data: Project[] = [
     projPhoto: '/projectPhoto/TOdo.png',
     title: 'ToDo',
     summary:
-      'Simple and clean TO DO project. Was made for Redux, Redux Toolkit practice. Design was taken from Figma community.',
+      'Clean to-do app built to practise Redux and Redux Toolkit. Design adapted from the Figma community.',
     techno: [
       '/Icons/javascript.svg',
       '/Icons/react.svg',
@@ -70,9 +81,9 @@ export const projects_data: Project[] = [
   },
   {
     projPhoto: '/projectPhoto/Crud.png',
-    title: 'Employees list - CRUD App',
+    title: 'Employees List — CRUD App',
     summary:
-      'My first react app that fully based on class components. Project was made for practice with CRUD operations',
+      'Early React app built with class components to practise CRUD operations.',
     techno: [
       '/Icons/javascript.svg',
       '/Icons/react.svg',
@@ -82,9 +93,9 @@ export const projects_data: Project[] = [
   },
   {
     projPhoto: '/projectPhoto/Food.png',
-    title: 'Food delivery landing',
+    title: 'Food Delivery Landing',
     summary:
-      'Food delivery landing page. Written on pure JS, it has 6 cool features : Calories calculator, Cards made with classes, Forms connected to local storage with fetch, Modal window with timer and statuses, Slider, Tabs',
+      'Landing page in vanilla JavaScript featuring a calorie calculator, class-based cards, forms persisted to local storage via fetch, a modal with timer, slider and tabs.',
     techno: ['/Icons/javascript.svg', '/Icons/css3.svg'],
     link: 'https://erebus1678.github.io/food-delivery/',
   },
