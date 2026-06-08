@@ -4,7 +4,7 @@
 
 @layer components {
   .heroButton {
-    @apply px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+    @apply px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-400 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
   }
 
   .contactInput {
@@ -12,27 +12,17 @@
   }
 }
 
-.swiper-button-next {
-  color: gray !important;
-  right: 20px !important;
-  top: 15% !important;
-  height: 60% !important;
-  transition: all 0.2s ease-in-out !important;
-  &:hover{
-    color: #F7AB0A !important;
-    background-color: #ffffff18 !important;
-  }
-  
-}
-
+.swiper-button-next,
 .swiper-button-prev {
   color: gray !important;
   right: 20px !important;
   top: 15% !important;
   height: 60% !important;
-  transition: all 0.3s ease-in-out !important;
-  &:hover{
-    color: #F7AB0A !important;
-    background-color: #ffffff18 !important;
-  }
+  transition: all 0.2s ease-in-out !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #f7ab0a !important;
+  background-color: #ffffff18 !important;
 }

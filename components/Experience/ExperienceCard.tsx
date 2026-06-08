@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Experience } from '../../typings'
 import Image from 'next/image'
 
-const ExperienceCard = (data: Experience, key: string) => {
+const ExperienceCard = (data: Experience) => {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-4 sm:space-y-7 flex-shrink-0 w-full sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-4 sm:p-6 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.img
@@ -15,14 +15,16 @@ const ExperienceCard = (data: Experience, key: string) => {
         viewport={{ once: true }}
         className="w-24 h-24 sm:w-32 sm:h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
         src={data.job_img}
+        alt={`${data.job_company} logo`}
+        loading="lazy"
       />
 
       <div className="px-2 sm:px-5 w-full">
         <div className="flex flex-col md:flex-row justify-between w-full space-y-4 md:space-y-0 md:space-x-4 mb-3">
           <div className="md:w-1/2">
-            <h4 className="text-2xl sm:text-4xl font-light">
+            <h3 className="text-2xl sm:text-4xl font-light">
               {data.job_title}
-            </h4>
+            </h3>
             <div className="flex space-x-2 my-2 align-middle">
               {data.technologies.map((technology: string) => (
                 <Image
@@ -40,10 +42,8 @@ const ExperienceCard = (data: Experience, key: string) => {
           <div className="md:w-1/2 text-end flex flex-col justify-between">
             <p className="text-lg sm:text-4xl font-light">{data.job_company}</p>
             <p className="text-gray-300 italic">
-              {data.dataStarted} -{' '}
-              {data.isCurrentlyWorkingHere
-                ? 'Present'
-                : new Date(data.dataStarted).toDateString()}
+              {data.dateStarted} -{' '}
+              {data.isCurrentlyWorkingHere ? 'Present' : data.dateEnded}
             </p>
           </div>
         </div>
