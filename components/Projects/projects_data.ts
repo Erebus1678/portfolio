@@ -2,6 +2,19 @@ import { Project } from '../../typings'
 
 export const projects_data: Project[] = [
   {
+    projPhoto: '/projectPhoto/apply-copilot.gif',
+    title: 'Apply Copilot',
+    summary:
+      'AI copilot for job applications — paste a job description and it extracts the tech stack, seniority and role archetype, scores the fit against your CV with a concrete gap list, drafts a tailored cover letter, and tracks every application on a persistent pipeline board. The AI layer is provider-agnostic: the same code runs against a local model (LM Studio, Ollama) or any cloud provider with your own key, and an embedded database means there is nothing to set up.',
+    techno: [
+      '/Icons/typescript.svg',
+      '/Icons/react.svg',
+      '/Icons/next.png',
+      '/Icons/tailwindcss.svg',
+    ],
+    repo: 'https://github.com/Erebus1678/apply-copilot',
+  },
+  {
     projPhoto: '/projectPhoto/fsd-react-template.svg',
     title: 'FSD React Template',
     summary:
