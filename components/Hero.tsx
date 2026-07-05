@@ -8,15 +8,15 @@ const Hero = () => {
   const [text] = useTypewriter({
     words: [
       "Hi, I'm Dmytro Platov",
-      'Senior Frontend Engineer',
       'React · TypeScript · Next.js',
+      'I build for 100k+ users',
     ],
     loop: true,
     delaySpeed: 3000,
   })
 
   return (
-    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+    <div className="min-h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden py-16">
       <BackgroundCircles />
       <Image
         src="/Photo/heroPhoto.jpg"
@@ -27,15 +27,15 @@ const Hero = () => {
         priority
       />
       <div className="z-20">
-        <p className="text-sm uppercase text-gray-400 pb-2 tracking-[15px]">
+        <p className="uppercase text-gray-400 pb-2 tracking-[0.5em] text-[clamp(0.65rem,0.55rem+0.4vw,0.875rem)]">
           Senior Frontend Engineer
         </p>
 
-        <h1 className="text-5xl lg:text-6xl font-semibold px-10">
+        <h1 className="font-semibold px-6 sm:px-10 text-[clamp(2rem,1.2rem+3.6vw,4rem)]">
           <span className="mr-3 ">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
-        <div className="pt-5">
+        <div className="pt-5 flex flex-wrap justify-center gap-2">
           <Link href="#about">
             <button className="heroButton">About</button>
           </Link>

@@ -5,6 +5,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 
+import SectionHeading from './SectionHeading'
+
 type Inputs = {
   name: string
   email: string
@@ -17,7 +19,7 @@ const ContactMe = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { isSubmitSuccessful },
   } = useForm<Inputs>()
   const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false)
 
@@ -30,7 +32,7 @@ Email :${formData?.email},
 
 Subject: ${formData?.subject}
 Text: ${formData?.message}
-      </pre> 
+      </pre>
       `
     axiosRetry(axios, { retries: 2 })
 
@@ -45,36 +47,28 @@ Text: ${formData?.message}
 
     reset()
   }
-  return (
-    <div className="h-screen flex relative flex-col justify-center items-center text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 mx-auto">
-      <h2 className="absolute top-16 uppercase tracking-[15px] sm:tracking-[20px] text-gray-500 text-xl sm:text-2xl">
-        Contact
-      </h2>
-      {isSuccessfullySubmitted && (
-        <p
-          role="status"
-          className="absolute bottom-10 text-[#F7AB0A] text-lg sm:text-2xl animate-pulse"
-        >
-          The message was sent successfully
-        </p>
-      )}
 
-      <div className="flex flex-col justify-center space-y-6 sm:space-y-10 h-[85vh] mt-[15vh]">
-        <h3 className="text-2xl sm:text-4xl font-semibold text-center">
-          I have got just what you need. {''}
+  return (
+    <div className="min-h-screen w-full max-w-2xl mx-auto flex flex-col items-center justify-center gap-y-[clamp(2rem,4vh,3rem)] px-4 py-24 sm:px-6 text-center">
+      <SectionHeading title="Contact" />
+
+      <div className="flex flex-col w-full gap-y-[clamp(1.5rem,3vh,2.5rem)]">
+        <h3 className="font-semibold text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)]">
+          I have got just what you need.{' '}
           <span className="underline decoration-[#F7AB0A] uppercase">
             Let&apos;s talk!
           </span>
         </h3>
-        <div className="space-y-3 sm:space-y-5">
+
+        <div className="space-y-4">
           <div className="flex items-center space-x-5 mx-auto justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse flex-shrink-0" />
             <a href="mailto:dmitryi.platov@gmail.com">
               dmitryi.platov@gmail.com
             </a>
           </div>
           <div className="flex items-center space-x-5 mx-auto justify-center">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse flex-shrink-0" />
             <p>Bucharest, Romania · open to remote (EU) &amp; relocation</p>
           </div>
         </div>
@@ -123,6 +117,15 @@ Text: ${formData?.message}
             Submit
           </button>
         </form>
+
+        {isSuccessfullySubmitted && (
+          <p
+            role="status"
+            className="text-[#F7AB0A] text-lg sm:text-2xl animate-pulse"
+          >
+            The message was sent successfully
+          </p>
+        )}
       </div>
     </div>
   )
