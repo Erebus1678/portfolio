@@ -39,7 +39,7 @@ function Header(): JSX.Element {
         ))}
 
         <Link
-          href="https://drive.google.com/file/d/1iJ9cqS0ue8NNprHrETJ2BQhRdZ6WXQTo/view?usp=sharing"
+          href="https://drive.google.com/file/d/1heBZI8lZaKyYmdAQEGxFRQ3aiSInbYem/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download CV"
