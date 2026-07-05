@@ -4,7 +4,8 @@ export interface Skill {
 }
 
 export interface Project {
-  projPhoto: string
+  /** Screenshot/preview image. Omitted for projects without a real shot. */
+  projPhoto?: string
   title: string
   summary: string
   techno: string[]
