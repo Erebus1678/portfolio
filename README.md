@@ -14,13 +14,15 @@ Personal portfolio of **Dmytro Platov** — Senior Frontend Engineer (React / Ty
 - **Styling:** TailwindCSS · custom scrollbar
 - **Motion:** Framer Motion
 - **Forms:** react-hook-form (contact form posts to a Telegram bot)
-- **UI bits:** Swiper (projects carousel), react-social-icons, react-simple-typewriter, Heroicons
+- **Fonts:** Space Grotesk + JetBrains Mono via `next/font`
+- **UI bits:** Swiper (projects carousel), react-social-icons
 - **Hosting:** Vercel
 
 ## Features
 
 - Typed, hardcoded content (projects, experience, skills) — no CMS, no runtime fetch
-- Animated section transitions and a hero typewriter
+- Swiss/brutalist design system with automatic dark mode (`prefers-color-scheme`) plus a manual light/dark toggle
+- Scroll-reveal section animations and a design-token colour system
 - Keyboard-accessible navigation, skills and project carousel
 - Responsive, mobile-first layout
 - SEO ready: Open Graph + Twitter meta, `robots.txt`, `sitemap.xml`
