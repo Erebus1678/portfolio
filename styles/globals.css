@@ -15,14 +15,41 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: gray !important;
-  right: 20px !important;
-  top: 15% !important;
-  height: 60% !important;
+  top: 18% !important;
+  height: 48% !important;
   transition: all 0.2s ease-in-out !important;
+}
+
+.swiper-button-prev {
+  left: 4px !important;
+}
+
+.swiper-button-next {
+  right: 4px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 28px !important;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   color: #f7ab0a !important;
   background-color: #ffffff18 !important;
+}
+
+/* On phones, keep arrows over the image only so they never cover the title */
+@media (max-width: 640px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 10% !important;
+    height: 26% !important;
+    width: 28px !important;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px !important;
+  }
 }

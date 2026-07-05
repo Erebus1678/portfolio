@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const ExperienceCard = (data: Experience) => {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-4 sm:space-y-7 flex-shrink-0 w-full sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-4 sm:p-6 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col rounded-lg items-center space-y-4 sm:space-y-7 flex-shrink-0 w-full sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-4 sm:p-6 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-y-auto">
       <motion.img
         initial={{
           y: -100,

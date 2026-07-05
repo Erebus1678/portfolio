@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
+
 import ExperienceCard from './ExperienceCard'
+import SectionHeading from '../SectionHeading'
 import { experience } from './experience_data'
 
 const WorkExperience = () => {
@@ -8,12 +10,11 @@ const WorkExperience = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
+      className="min-h-screen w-full flex flex-col items-center gap-y-[clamp(1.5rem,3vh,2.5rem)] px-4 pt-24 pb-10 sm:px-6"
     >
-      <h2 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl">
-        Experience
-      </h2>
-      <div className="flex w-full justify-center space-x-5 overflow-x-scroll px-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 h-[90vh] sm:h-[85vh] mt-[10vh] sm:mt-[15vh]">
+      <SectionHeading title="Experience" />
+
+      <div className="flex-1 min-h-0 w-full flex [justify-content:safe_center] gap-5 overflow-x-scroll snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
         {experience.map((item) => (
           <ExperienceCard key={item.job_company} {...item} />
         ))}
