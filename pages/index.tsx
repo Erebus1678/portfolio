@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Image from 'next/image'
 import About from '../components/About'
 import ContactMe from '../components/ContactMe'
 import Header from '../components/Header'
@@ -26,7 +25,16 @@ const Home = () => {
           name="keywords"
           content="Dmytro Platov, Frontend Engineer, React, TypeScript, Next.js, Redux Toolkit, Storybook, Design Systems"
         />
-        <meta name="theme-color" content="#242424" />
+        <meta
+          name="theme-color"
+          content="#E9E8E3"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#0E0E0C"
+          media="(prefers-color-scheme: dark)"
+        />
         <link rel="canonical" href="https://platov-portfolio.vercel.app/" />
         <link rel="icon" href="/favicon.ico" />
 
@@ -68,7 +76,7 @@ const Home = () => {
           content="https://platov-portfolio.vercel.app/Photo/aboutPhoto.jpg"
         />
       </Head>
-      <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+      <div className="bg-paper text-ink font-sans h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-transparent scrollbar-thumb-ink/30">
         <Header />
 
         <main>
@@ -98,16 +106,11 @@ const Home = () => {
         </main>
 
         <Link href="#hero" aria-label="Back to top">
-          <footer className="sticky bottom-2 w-full cursor-pointer">
-            <div className="flex items-center justify-center mx-auto">
-              <Image
-                width={40}
-                height={40}
-                className="opacity-30 rounded-full filter cursor-pointer
-              hover:opacity-100"
-                src="/Icons/arrow-up.svg"
-                alt="Back to top"
-              />
+          <footer className="sticky bottom-4 w-full cursor-pointer">
+            <div className="mx-auto flex max-w-6xl justify-end px-6 sm:px-10">
+              <span className="font-mono uppercase tracking-[0.18em] text-xs text-muted transition-colors hover:text-accent">
+                ↑ Top
+              </span>
             </div>
           </footer>
         </Link>

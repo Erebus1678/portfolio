@@ -1,56 +1,107 @@
-import React from 'react'
-import { Cursor, useTypewriter } from 'react-simple-typewriter'
-import BackgroundCircles from './BackgroundCircles'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
+const nav = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+]
+
+const facts = [
+  { k: 'Stack', v: 'React · TypeScript · Next.js' },
+  { k: 'Scale', v: '100K+ users shipped' },
+  { k: 'Focus', v: 'Design systems · performance · a11y' },
+  { k: 'Based', v: 'Bucharest, RO — remote (EU)' },
+]
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+}
+const item = {
+  hidden: { opacity: 0, y: 16 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+}
+
 const Hero = () => {
-  const [text] = useTypewriter({
-    words: [
-      "Hi, I'm Dmytro Platov",
-      'React · TypeScript · Next.js',
-      'I build for 100k+ users',
-    ],
-    loop: true,
-    delaySpeed: 3000,
-  })
-
   return (
-    <div className="min-h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden py-16">
-      <BackgroundCircles />
-      <Image
-        src="/Photo/heroPhoto.jpg"
-        className=" relative rounded-full object-cover"
-        alt="Portrait of Dmytro Platov"
-        width={128}
-        height={128}
-        priority
-      />
-      <div className="z-20">
-        <p className="uppercase text-gray-400 pb-2 tracking-[0.5em] text-[clamp(0.65rem,0.55rem+0.4vw,0.875rem)]">
-          Senior Frontend Engineer
-        </p>
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="min-h-screen w-full max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] mx-auto flex flex-col justify-center gap-8 sm:gap-10 px-6 py-24 sm:px-10"
+    >
+      <motion.div
+        variants={item}
+        className="flex items-center justify-between border-b border-ink pb-3"
+      >
+        <span className="label">Portfolio — {new Date().getFullYear()}</span>
+        <span className="label hidden sm:block">Available for hire</span>
+      </motion.div>
 
-        <h1 className="font-semibold px-6 sm:px-10 text-[clamp(2rem,1.2rem+3.6vw,4rem)]">
-          <span className="mr-3 ">{text}</span>
-          <Cursor cursorColor="#F7AB0A" />
-        </h1>
-        <div className="pt-5 flex flex-wrap justify-center gap-2">
-          <Link href="#about">
-            <button className="heroButton">About</button>
-          </Link>
-          <Link href="#experience">
-            <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
-            <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#projects">
-            <button className="heroButton">Projects</button>
-          </Link>
-        </div>
+      <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <motion.div variants={item}>
+          <h1 className="font-bold uppercase leading-[0.85] tracking-[-0.03em] text-[clamp(3rem,1rem+11vw,9rem)]">
+            Dmytro
+            <br />
+            Platov
+          </h1>
+          <p className="mt-4 flex items-center gap-3 font-mono uppercase tracking-[0.12em] text-sm sm:text-base text-accent">
+            <span className="inline-block h-3 w-3 bg-accent" />
+            Senior Frontend Engineer
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={item}
+          className="relative hidden h-[240px] w-[190px] shrink-0 overflow-hidden border border-ink md:block"
+        >
+          <Image
+            src="/Photo/heroPhoto.jpg"
+            alt="Dmytro Platov"
+            fill
+            priority
+            sizes="190px"
+            style={{ transform: 'scale(1.35)' }}
+            className="object-cover object-[center_20%]"
+          />
+        </motion.div>
       </div>
-    </div>
+
+      <motion.div variants={item} className="border-t border-ink">
+        {facts.map((f) => (
+          <div
+            key={f.k}
+            className="flex flex-col gap-1 border-b border-wire py-3 sm:flex-row sm:gap-8 sm:py-4"
+          >
+            <span className="label shrink-0 sm:w-32">{f.k}</span>
+            <span className="text-base sm:text-lg">{f.v}</span>
+          </div>
+        ))}
+      </motion.div>
+
+      <motion.nav variants={item} className="flex flex-wrap gap-x-6 gap-y-2">
+        {nav.map((n, i) => (
+          <Link
+            key={n.href}
+            href={n.href}
+            className="group font-mono text-sm uppercase tracking-[0.08em] text-ink transition-colors hover:text-accent"
+          >
+            <span className="text-muted group-hover:text-accent">
+              {String(i + 1).padStart(2, '0')}
+            </span>{' '}
+            {n.label}
+          </Link>
+        ))}
+      </motion.nav>
+    </motion.div>
   )
 }
 

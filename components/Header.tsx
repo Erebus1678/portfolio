@@ -1,7 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 import { SocialIcon } from 'react-social-icons'
 import { motion } from 'framer-motion'
+
+import ThemeToggle from './ThemeToggle'
 
 const Socials = [
   'https://github.com/Erebus1678',
@@ -10,22 +11,12 @@ const Socials = [
 
 function Header(): JSX.Element {
   return (
-    <header className="sticky top-0 p-2 sm:p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
+    <header className="sticky top-0 z-20 mx-auto flex max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] items-center justify-between px-6 py-3 sm:px-10">
       <motion.div
-        initial={{
-          x: -500,
-          opacity: 0,
-          scale: 0.5,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{
-          duration: 1.5,
-        }}
-        className="flex flex-row items-center"
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex items-center gap-1 text-ink"
       >
         {Socials.map((social) => (
           <SocialIcon
@@ -33,52 +24,34 @@ function Header(): JSX.Element {
             url={social}
             target="_blank"
             rel="noopener noreferrer"
-            fgColor="gray"
+            fgColor="currentColor"
             bgColor="transparent"
+            style={{ height: 40, width: 40 }}
           />
         ))}
-
         <Link
           href="https://drive.google.com/file/d/1heBZI8lZaKyYmdAQEGxFRQ3aiSInbYem/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download CV"
+          className="ml-2 font-mono text-xs uppercase tracking-[0.12em] text-ink transition-colors hover:text-accent"
         >
-          <img
-            src="/Icons/cv.svg"
-            alt="Download CV"
-            className="h-8 w-8 fill-gray-600"
-          />
+          CV ↗
         </Link>
       </motion.div>
+
       <motion.div
-        initial={{
-          x: 500,
-          opacity: 0,
-          scale: 0.5,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{
-          duration: 1.5,
-        }}
-        className="flex flex-row items-center text-gray-300"
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex items-center gap-4 sm:gap-6"
       >
-        <SocialIcon
-          className="cursor-pointer md:h-10 md:w-10"
-          network="email"
-          url="#contact"
-          fgColor="gray"
-          bgColor="transparent"
-        />
+        <ThemeToggle />
         <Link
           href="#contact"
-          className="uppercase hidden md:inline-flex text-sm text-gray-400 cursor-pointer"
+          className="hidden font-mono text-xs uppercase tracking-[0.12em] text-ink transition-colors hover:text-accent sm:inline-flex"
         >
-          Get In Touch
+          Get in touch ↗
         </Link>
       </motion.div>
     </header>

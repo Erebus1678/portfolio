@@ -1,60 +1,66 @@
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Experience } from '../../typings'
-import Image from 'next/image'
 
-const ExperienceCard = (data: Experience) => {
+type Props = {
+  data: Experience
+  index: number
+}
+
+// One row in the experience timeline. Reveals with a scroll-triggered
+// slide-up, staggered by index. Large mono index + date on the left; the
+// index and hairline pick up the accent on hover.
+const ExperienceCard = ({ data, index }: Props) => {
+  const end = data.isCurrentlyWorkingHere ? 'Present' : data.dateEnded
+
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-4 sm:space-y-7 flex-shrink-0 w-full sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-4 sm:p-6 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-y-auto">
-      <motion.img
-        initial={{
-          y: -100,
-          opacity: 0,
-        }}
-        transition={{ duration: 1.2 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="w-24 h-24 sm:w-32 sm:h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-        src={data.job_img}
-        alt={`${data.job_company} logo`}
-        loading="lazy"
-      />
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.55,
+        delay: index * 0.12,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="group grid gap-4 border-b border-wire py-6 transition-colors duration-200 hover:border-accent sm:grid-cols-[10rem_1fr] sm:gap-8 md:py-8"
+    >
+      <div className="flex items-baseline gap-4 sm:flex-col sm:gap-3">
+        <span className="font-mono text-3xl leading-none text-muted transition-colors duration-200 group-hover:text-accent sm:text-4xl">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <span className="label whitespace-nowrap">
+          {data.dateStarted} — {end}
+        </span>
+      </div>
 
-      <div className="px-2 sm:px-5 w-full">
-        <div className="flex flex-col md:flex-row justify-between w-full space-y-4 md:space-y-0 md:space-x-4 mb-3">
-          <div className="md:w-1/2">
-            <h3 className="text-2xl sm:text-4xl font-light">
-              {data.job_title}
-            </h3>
-            <div className="flex space-x-2 my-2 align-middle">
-              {data.technologies.map((technology: string) => (
-                <Image
-                  key={`tech-icon-${technology}`}
-                  src={technology}
-                  alt="technology icon"
-                  className="flex items-center justify-center"
-                  width={30}
-                  height={30}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="md:w-1/2 text-end flex flex-col justify-between">
-            <p className="text-lg sm:text-4xl font-light">{data.job_company}</p>
-            <p className="text-gray-300 italic">
-              {data.dateStarted} -{' '}
-              {data.isCurrentlyWorkingHere ? 'Present' : data.dateEnded}
-            </p>
-          </div>
+      <div>
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h3 className="text-2xl font-medium sm:text-3xl">{data.job_title}</h3>
+          <span className="font-mono text-sm uppercase tracking-[0.08em] text-muted">
+            {data.job_company}
+          </span>
         </div>
 
-        <ul className="list-disc space-y-2 sm:space-y-4 ml-4 sm:ml-5 text-base sm:text-lg max-h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80 pr-4 sm:pr-5 list-inside">
-          {data.points.map((point: string) => (
-            <li key={`point-${point}`}>{point}</li>
+        <div className="mt-3 flex flex-wrap items-center gap-2.5">
+          {data.technologies.map((tech) => (
+            <Image key={tech} src={tech} alt="" width={22} height={22} />
+          ))}
+        </div>
+
+        <ul className="mt-4 space-y-2">
+          {data.points.map((point, i) => (
+            <li
+              key={i}
+              className="flex gap-3 text-sm leading-relaxed text-muted sm:text-base"
+            >
+              <span className="mt-2 h-1 w-1 shrink-0 bg-accent" />
+              <span>{point}</span>
+            </li>
           ))}
         </ul>
       </div>
-    </article>
+    </motion.article>
   )
 }
 

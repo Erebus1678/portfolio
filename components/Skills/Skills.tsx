@@ -9,24 +9,20 @@ const Skills = () => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="min-h-screen w-full max-w-[2000px] mx-auto flex flex-col items-center justify-center gap-y-[clamp(2rem,4vh,3.5rem)] px-4 py-24 sm:px-8 xl:px-10"
+      className="min-h-screen w-full max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] mx-auto flex flex-col justify-center gap-8 sm:gap-10 px-6 py-24 sm:px-10"
     >
       <SectionHeading
+        tag="// stack"
         title="Skills"
-        subtitle="Hover or focus a skill to see its name"
+        meta={`${skills_data.length} tools`}
       />
 
-      <div className="grid grid-cols-4 gap-3 sm:grid-cols-5 sm:gap-4 xl:gap-6">
-        {skills_data?.slice(0, skills_data.length / 2).map((skill) => (
+      <div className="grid grid-cols-4 border-l border-t border-wire sm:grid-cols-5">
+        {skills_data?.map((skill) => (
           <SkillCard key={skill.title} skill={skill} />
         ))}
-        {skills_data
-          ?.slice(skills_data.length / 2, skills_data.length)
-          .map((skill) => (
-            <SkillCard key={skill.title} skill={skill} directionLeft />
-          ))}
       </div>
     </motion.div>
   )

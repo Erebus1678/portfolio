@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
@@ -49,38 +48,40 @@ Text: ${formData?.message}
   }
 
   return (
-    <div className="min-h-screen w-full max-w-2xl mx-auto flex flex-col items-center justify-center gap-y-[clamp(2rem,4vh,3rem)] px-4 py-24 sm:px-6 text-center">
-      <SectionHeading title="Contact" />
+    <div className="min-h-screen w-full max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] mx-auto flex flex-col justify-center gap-8 sm:gap-12 px-6 py-24 sm:px-10">
+      <SectionHeading tag="// get in touch" title="Contact" />
 
-      <div className="flex flex-col w-full gap-y-[clamp(1.5rem,3vh,2.5rem)]">
-        <h3 className="font-semibold text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)]">
-          I have got just what you need.{' '}
-          <span className="underline decoration-[#F7AB0A] uppercase">
-            Let&apos;s talk!
-          </span>
-        </h3>
+      <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+        <div>
+          <p className="text-[clamp(1.3rem,1rem+1.5vw,2rem)] font-medium leading-[1.15]">
+            Have a role or a hard frontend problem worth solving?{' '}
+            <span className="text-accent">Let&apos;s talk.</span>
+          </p>
 
-        <div className="space-y-4">
-          <div className="flex items-center space-x-5 mx-auto justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse flex-shrink-0" />
-            <a href="mailto:dmitryi.platov@gmail.com">
-              dmitryi.platov@gmail.com
-            </a>
-          </div>
-          <div className="flex items-center space-x-5 mx-auto justify-center">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse flex-shrink-0" />
-            <p>Bucharest, Romania · open to remote (EU) &amp; relocation</p>
-          </div>
+          <dl className="mt-8 border-t border-wire">
+            <div className="flex flex-col gap-1 border-b border-wire py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+              <dt className="label">Email</dt>
+              <dd>
+                <a
+                  href="mailto:dmitryi.platov@gmail.com"
+                  className="font-mono text-sm transition-colors hover:text-accent"
+                >
+                  dmitryi.platov@gmail.com
+                </a>
+              </dd>
+            </div>
+            <div className="flex flex-col gap-1 border-b border-wire py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+              <dt className="label">Location</dt>
+              <dd className="font-mono text-sm">Bucharest, RO — remote (EU)</dd>
+            </div>
+          </dl>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-full mx-auto"
-        >
-          <div className="flex flex-col sm:flex-row w-full space-y-2 sm:space-y-0 sm:space-x-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <input
               {...register('name')}
-              className="contactInput w-full sm:w-1/2"
+              className="contactInput"
               placeholder="Name"
               aria-label="Name"
               type="text"
@@ -88,7 +89,7 @@ Text: ${formData?.message}
             />
             <input
               {...register('email')}
-              className="contactInput w-full sm:w-1/2"
+              className="contactInput"
               placeholder="E-mail"
               aria-label="E-mail"
               type="email"
@@ -105,27 +106,27 @@ Text: ${formData?.message}
           />
           <textarea
             {...register('message')}
-            className="contactInput min-h-[60px] max-h-[80px] sm:max-h-[120px]"
+            className="contactInput min-h-[120px] resize-none"
             placeholder="Message"
             aria-label="Message"
             required
           />
           <button
-            className="bg-[#f7ab0a] py-3 sm:py-5 px-6 sm:px-10 rounded-md text-black font-bold text-base sm:text-lg"
+            className="mt-1 rounded-none bg-accent px-6 py-3 font-mono text-sm uppercase tracking-[0.12em] text-paper transition-opacity hover:opacity-90"
             type="submit"
           >
-            Submit
+            Send message ↗
           </button>
-        </form>
 
-        {isSuccessfullySubmitted && (
-          <p
-            role="status"
-            className="text-[#F7AB0A] text-lg sm:text-2xl animate-pulse"
-          >
-            The message was sent successfully
-          </p>
-        )}
+          {isSuccessfullySubmitted && (
+            <p
+              role="status"
+              className="font-mono text-sm uppercase tracking-[0.1em] text-accent"
+            >
+              Message sent ✓
+            </p>
+          )}
+        </form>
       </div>
     </div>
   )

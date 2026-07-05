@@ -1,40 +1,30 @@
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+
 import { Skill } from '../../typings'
 
 type Props = {
   skill: Skill
-  directionLeft?: boolean
 }
 
-const SkillCard = ({ directionLeft, skill }: Props) => {
+// One cell in the stack reference table. Label always shown (mono); hover
+// inverts the cell (bg -> foreground, label -> surface) in both themes.
+const SkillCard = ({ skill }: Props) => {
   return (
     <div
-      className="group relative flex cursor-pointer rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F7AB0A]"
+      className="group relative flex min-h-[88px] cursor-default flex-col items-center justify-center gap-2 border-b border-r border-wire p-3 outline-none transition-colors duration-200 hover:bg-ink focus-visible:bg-ink sm:min-h-[112px]"
       tabIndex={0}
       aria-label={skill.title}
     >
-      <motion.img
-        initial={{
-          x: directionLeft ? -200 : 200,
-          opacity: 0,
-        }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+      <Image
         src={skill.image}
-        alt={skill.title}
-        loading="lazy"
-        className="rounded-3xl border border-gray-500 object-cover h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 xl:h-28 xl:w-28 filter group-hover:grayscale group-focus:grayscale transition duration-300 ease-in-out"
+        alt=""
+        width={40}
+        height={40}
+        className="h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-110 sm:h-10 sm:w-10"
       />
-      <div className="absolute opacity-0 group-hover:opacity-80 group-focus:opacity-80 transition duration-300 ease-in-out group-hover:bg-white group-focus:bg-white h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 xl:h-28 xl:w-28 rounded-3xl z-0">
-        <div className="flex flex-col items-center justify-center h-full">
-          <p
-            className="text-sm sm:text-xl font-bold text-black
-          opacity-100 text-center break-words"
-          >
-            {`${skill.title}`}
-          </p>
-        </div>
-      </div>
+      <span className="text-center font-mono font-medium text-[10px] uppercase leading-tight tracking-[0.06em] text-muted transition-colors group-hover:text-paper group-focus-visible:text-paper sm:text-[11px]">
+        {skill.title}
+      </span>
     </div>
   )
 }
