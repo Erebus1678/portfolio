@@ -1,22 +1,30 @@
 type Props = {
   title: string
-  subtitle?: string
+  /** Mono eyebrow, e.g. "// stack". Encodes what the section is, not decoration. */
+  tag?: string
+  /** Optional right-aligned mono data, e.g. "19 tools" or a date range. */
+  meta?: string
 }
 
-// Fluid section heading kept in normal flow (no absolute positioning),
-// so it can never overlap the content below it. Sizing scales with the
-// viewport via clamp(); letter-spacing uses em so it tracks the font size.
-const SectionHeading = ({ title, subtitle }: Props) => {
+// Swiss/technical section header: mono tag + oversized grotesque title on a
+// hairline baseline, left-aligned. Lives in normal flow so it can never
+// overlap content.
+const SectionHeading = ({ title, tag, meta }: Props) => {
   return (
-    <div className="shrink-0 text-center">
-      <h2 className="uppercase font-medium text-gray-500 tracking-[0.35em] sm:tracking-[0.5em] text-[clamp(1.1rem,0.9rem+1.2vw,1.6rem)]">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="mt-3 uppercase text-gray-400 tracking-[0.15em] text-[clamp(0.7rem,0.62rem+0.35vw,0.9rem)]">
-          {subtitle}
-        </p>
-      )}
+    <div className="w-full border-b border-ink pb-3 sm:pb-4">
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          {tag && <span className="label block mb-1.5">{tag}</span>}
+          <h2 className="font-bold uppercase leading-[0.88] tracking-[-0.02em] text-[clamp(2.2rem,1.1rem+5.4vw,5.5rem)]">
+            {title}
+          </h2>
+        </div>
+        {meta && (
+          <span className="label hidden sm:block whitespace-nowrap pb-1">
+            {meta}
+          </span>
+        )}
+      </div>
     </div>
   )
 }
