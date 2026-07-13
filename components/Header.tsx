@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { SocialIcon } from 'react-social-icons'
 import { motion } from 'framer-motion'
@@ -12,9 +13,45 @@ const Socials = [
   },
 ]
 
+// Distance from the top of the scroll container still considered "at the top".
+const TOP_THRESHOLD = 80
+// Cursor within this many px of the viewport top peeks the header back in.
+const PEEK_ZONE = 88
+
 function Header(): JSX.Element {
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    const scroller = document.querySelector<HTMLElement>('.snap-y')
+    if (!scroller) return
+
+    let atTop = true
+    let nearTop = false
+    const apply = () => setVisible(atTop || nearTop)
+
+    const onScroll = () => {
+      atTop = scroller.scrollTop < TOP_THRESHOLD
+      apply()
+    }
+    const onPointerMove = (e: PointerEvent) => {
+      nearTop = e.clientY < PEEK_ZONE
+      apply()
+    }
+
+    scroller.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('pointermove', onPointerMove, { passive: true })
+    onScroll()
+    return () => {
+      scroller.removeEventListener('scroll', onScroll)
+      window.removeEventListener('pointermove', onPointerMove)
+    }
+  }, [])
+
   return (
-    <header className="sticky top-0 z-20 mx-auto flex max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] items-center justify-between px-6 py-3 sm:px-10">
+    <header
+      style={{ transform: visible ? 'none' : 'translateY(-115%)' }}
+      className="sticky top-0 z-20 mx-auto flex max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] items-center justify-between px-6 py-3 transition-transform duration-300 ease-out [will-change:transform] sm:px-10"
+    >
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
