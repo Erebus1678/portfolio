@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import About from '../components/About'
+import BlueprintFrame from '../components/BlueprintFrame'
+import BlueprintRail from '../components/BlueprintRail'
 import ContactMe from '../components/ContactMe'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Projects from '../components/Projects/Projects'
+import SectionIndex from '../components/SectionIndex'
 import Skills from '../components/Skills/Skills'
 import WorkExperience from '../components/Experience/WorkExperience'
 
@@ -76,10 +79,13 @@ const Home = () => {
           content="https://platov-portfolio.vercel.app/Photo/aboutPhoto.jpg"
         />
       </Head>
-      <div className="bg-paper text-ink font-sans h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-transparent scrollbar-thumb-ink/30">
+      <div className="bg-paper text-ink font-sans h-screen snap-y snap-proximity overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-transparent scrollbar-thumb-ink/30">
+        <BlueprintFrame />
         <Header />
+        <BlueprintRail />
+        <SectionIndex />
 
-        <main>
+        <main className="relative z-10">
           <section id="hero" className="snap-start">
             <Hero />
           </section>

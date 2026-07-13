@@ -5,8 +5,11 @@ import { motion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 
 const Socials = [
-  'https://github.com/Erebus1678',
-  'https://www.linkedin.com/in/dmitryi-platov/',
+  { url: 'https://github.com/Erebus1678', label: 'GitHub profile' },
+  {
+    url: 'https://www.linkedin.com/in/dmitryi-platov/',
+    label: 'LinkedIn profile',
+  },
 ]
 
 function Header(): JSX.Element {
@@ -20,8 +23,9 @@ function Header(): JSX.Element {
       >
         {Socials.map((social) => (
           <SocialIcon
-            key={social}
-            url={social}
+            key={social.url}
+            url={social.url}
+            aria-label={social.label}
             target="_blank"
             rel="noopener noreferrer"
             fgColor="currentColor"

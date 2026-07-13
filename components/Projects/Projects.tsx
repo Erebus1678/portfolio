@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
@@ -6,18 +6,49 @@ import Image from 'next/image'
 
 import { projects_data } from './projects_data'
 import SectionHeading from '../SectionHeading'
+import { useReveal } from '../../lib/reveal'
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
 const Projects = () => {
+  const rootRef = useRef<HTMLDivElement>(null)
+
+  useReveal(rootRef, {
+    arm: (el) => {
+      const head = el.querySelector<HTMLElement>('.proj-head')
+      if (head) {
+        head.style.opacity = '0'
+        head.style.transform = 'translateY(16px)'
+      }
+      const stage = el.querySelector<HTMLElement>('.proj-stage')
+      if (stage) {
+        stage.style.opacity = '0'
+        stage.style.transform = 'translateY(20px)'
+      }
+    },
+    play: (el, { animate }) => {
+      animate(el.querySelectorAll('.proj-head'), {
+        opacity: [0, 1],
+        translateY: [16, 0],
+        duration: 600,
+        ease: 'outExpo',
+      })
+      animate(el.querySelectorAll('.proj-stage'), {
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 700,
+        delay: 160,
+        ease: 'outExpo',
+      })
+    },
+  })
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+    <div
+      ref={rootRef}
       className="min-h-screen w-full flex flex-col gap-8 overflow-hidden pt-24 pb-12"
     >
-      <div className="mx-auto w-full max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] px-6 sm:px-10">
+      <div className="proj-head mx-auto w-full max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] px-6 sm:px-10">
         <SectionHeading
           tag="// selected work"
           title="Projects"
@@ -25,7 +56,7 @@ const Projects = () => {
         />
       </div>
 
-      <div className="min-h-0 w-full flex-1">
+      <div className="proj-stage min-h-0 w-full flex-1">
         <Swiper navigation modules={[Navigation]} className="h-full w-full">
           {projects_data?.map((project, i) => {
             const hasShot = Boolean(project.projPhoto)
@@ -95,11 +126,11 @@ const Projects = () => {
             return (
               <SwiperSlide
                 key={project.title}
-                className="flex h-full flex-col [justify-content:safe_center] overflow-y-auto px-10 py-6 sm:px-14"
+                className="flex h-full flex-col [justify-content:safe_center] overflow-y-auto py-6"
               >
                 {hasShot ? (
-                  <div className="mx-auto grid w-full max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] items-center gap-8 md:grid-cols-[1.5fr_1fr] md:gap-10">
-                    <div className="border border-wire p-2">
+                  <div className="mx-auto grid w-full max-w-6xl min-[2000px]:max-w-[1680px] min-[2560px]:max-w-[1920px] items-center gap-8 px-6 sm:px-10 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] md:gap-10">
+                    <div className="min-w-0 border border-wire p-2">
                       {/* Kept as <img>: project shots include animated GIFs,
                           which next/image would freeze to a single frame. */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -119,7 +150,7 @@ const Projects = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="mx-auto max-w-2xl text-center">
+                  <div className="mx-auto max-w-2xl px-6 text-center">
                     {meta}
                     {title}
                     {stack}
@@ -132,7 +163,7 @@ const Projects = () => {
           })}
         </Swiper>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

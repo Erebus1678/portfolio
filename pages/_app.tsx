@@ -6,6 +6,7 @@ import 'swiper/css/navigation'
 import 'tippy.js/dist/tippy.css'
 
 import type { AppProps } from 'next/app'
+import { MotionConfig } from 'framer-motion'
 import { Space_Grotesk, JetBrains_Mono } from '@next/font/google'
 
 const grotesk = Space_Grotesk({
@@ -24,8 +25,10 @@ const mono = JetBrains_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${grotesk.variable} ${mono.variable} font-sans`}>
-      <Component {...pageProps} />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className={`${grotesk.variable} ${mono.variable} font-sans`}>
+        <Component {...pageProps} />
+      </div>
+    </MotionConfig>
   )
 }

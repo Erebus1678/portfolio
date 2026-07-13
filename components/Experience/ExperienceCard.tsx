@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { Experience } from '../../typings'
 
 type Props = {
@@ -7,24 +6,15 @@ type Props = {
   index: number
 }
 
-// One row in the experience timeline. Reveals with a scroll-triggered
-// slide-up, staggered by index. Large mono index + date on the left; the
-// index and hairline pick up the accent on hover.
+// One row in the experience timeline. The scroll reveal is driven by the
+// parent (.exp-row stagger in WorkExperience); this stays a plain article so
+// the two motion systems don't fight over opacity. Large mono index + date on
+// the left; the index and hairline pick up the accent on hover.
 const ExperienceCard = ({ data, index }: Props) => {
   const end = data.isCurrentlyWorkingHere ? 'Present' : data.dateEnded
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: 0.55,
-        delay: index * 0.12,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="group grid gap-4 border-b border-wire py-6 transition-colors duration-200 hover:border-accent sm:grid-cols-[10rem_1fr] sm:gap-8 md:py-8"
-    >
+    <article className="group grid gap-4 border-b border-wire py-6 transition-colors duration-200 hover:border-accent sm:grid-cols-[10rem_1fr] sm:gap-8 md:py-8">
       <div className="flex items-baseline gap-4 sm:flex-col sm:gap-3">
         <span className="font-mono text-3xl leading-none text-muted transition-colors duration-200 group-hover:text-accent sm:text-4xl">
           {String(index + 1).padStart(2, '0')}
@@ -60,7 +50,7 @@ const ExperienceCard = ({ data, index }: Props) => {
           ))}
         </ul>
       </div>
-    </motion.article>
+    </article>
   )
 }
 

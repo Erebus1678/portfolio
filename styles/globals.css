@@ -62,8 +62,10 @@
     @apply font-mono font-medium uppercase tracking-[0.18em] text-xs text-muted;
   }
 
+  /* Border uses the muted token, not the hairline wire: an editable field
+     boundary must clear WCAG 1.4.11 (>=3:1), which wire (~1.4:1) does not. */
   .contactInput {
-    @apply w-full rounded-none border border-wire bg-transparent px-4 py-3 font-mono text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-accent;
+    @apply w-full rounded-none border border-muted bg-transparent px-4 py-3 font-mono text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-accent focus:ring-1 focus:ring-accent;
   }
 }
 
@@ -105,5 +107,63 @@
   .swiper-button-next::after,
   .swiper-button-prev::after {
     font-size: 16px !important;
+  }
+}
+
+/* ---- anime.js reveal choreography ----------------------------------------
+   Start states apply ONLY when JS is present and motion is allowed: the hero
+   root gets `.motion-ready` in a pre-paint layout effect, and section covers
+   are armed inline. No-JS and prefers-reduced-motion visitors never hit these
+   rules, so they always see the final, fully-visible content. */
+
+/* Name letters assemble from random offset + tilt; only opacity is pre-set in
+   CSS, anime.js drives the transform so no-JS visitors see them in place. */
+.hero-letter {
+  display: inline-block;
+}
+
+/* Photo wipe covers: a paper panel that scales away to reveal the image.
+   Default scaleX(0) keeps the photo visible when the animation never runs. */
+.hero-photo-cover,
+.about-photo-cover {
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+  transform: scaleX(0);
+  transform-origin: right center;
+  pointer-events: none;
+}
+
+.motion-ready .hero-letter {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.motion-ready .bp-line {
+  opacity: 0;
+}
+.motion-ready .hero-photo-cover {
+  transform: scaleX(1);
+}
+.motion-ready .hero-role,
+.motion-ready .hero-fact,
+.motion-ready .hero-cta,
+.motion-ready .hero-nav-item,
+.motion-ready .hero-topbar-item {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Reduced-motion fallback: kill CSS transitions/animations and the smooth
+   scroll-snap glide for visitors who ask for it. Framer Motion reveals honour
+   the same OS preference via <MotionConfig reducedMotion="user"> in _app.
+   The anime.js reveals never arm under this query (guarded in JS). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
