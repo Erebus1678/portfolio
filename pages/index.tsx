@@ -111,15 +111,17 @@ const Home = () => {
           </section>
         </main>
 
-        <Link href="#hero" aria-label="Back to top">
-          <footer className="sticky bottom-4 w-full cursor-pointer">
-            <div className="mx-auto flex max-w-6xl justify-end px-6 sm:px-10">
-              <span className="font-mono uppercase tracking-[0.18em] text-xs text-muted transition-colors hover:text-accent">
-                ↑ Top
-              </span>
-            </div>
-          </footer>
-        </Link>
+        <footer className="pointer-events-none sticky bottom-4 z-20 w-full">
+          <div className="mx-auto flex max-w-6xl justify-end px-6 sm:px-10">
+            <Link
+              href="#hero"
+              aria-label="Back to top"
+              className="pointer-events-auto font-mono text-xs uppercase tracking-[0.18em] text-muted transition-colors hover:text-accent"
+            >
+              ↑ Top
+            </Link>
+          </div>
+        </footer>
       </div>
     </>
   )
